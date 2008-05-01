@@ -1,0 +1,76 @@
+#
+# Conditional build:
+%bcond_without	tests		# do not perform "make test"
+#
+%include	/usr/lib/rpm/macros.perl
+%define	pdir	Class
+%define	pnam	MOP
+Summary:	Class::MOP - A Meta Object Protocol for Perl 5
+#Summary(pl.UTF-8):	
+Name:		perl-Class-MOP
+Version:	0.55
+Release:	1
+# same as perl
+License:	GPL v1+ or Artistic
+Group:		Development/Languages/Perl
+Source0:	http://www.cpan.org/modules/by-module/Class/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	83b916baa38c7089c9f0c84c67aa1fec
+URL:		http://search.cpan.org/dist/Class-MOP/
+BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	rpm-perlprov >= 4.1-13
+%if %{with tests}
+BuildRequires:	perl-MRO-Compat >= 0.05
+BuildRequires:	perl-Sub-Name >= 0.02
+BuildRequires:	perl-Test-Exception >= 0.21
+%endif
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+Class::MOP is a fully functioning meta object protocol for the
+Perl 5 object system. It makes no attempt to change the behavior or
+characteristics of the Perl 5 object system, only to create a protocol
+for its manipulation and introspection.
+
+That said, it does attempt to create the tools for building a rich
+set of extensions to the Perl 5 object system. Every attempt has been
+made for these tools to keep to the spirit of the Perl 5 object system
+that we all know and love.
+
+# %description -l pl.UTF-8
+# TODO
+
+%prep
+%setup -q -n %{pdir}-%{pnam}-%{version}
+
+%build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make} \
+	CC="%{__cc}" \
+	OPTIMIZE="%{rpmcflags}"
+
+%{?with_tests:%{__make} test}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+%{__make} pure_install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc Changes
+%{perl_vendorarch}/*.pm
+%{perl_vendorarch}/Class/*.pm
+%{perl_vendorarch}/Class/MOP
+%dir %{perl_vendorarch}/auto/Class/MOP
+%{perl_vendorarch}/auto/Class/MOP/*.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Class/MOP/*.so
+%{_mandir}/man3/*
+%{_examplesdir}/%{name}-%{version}
