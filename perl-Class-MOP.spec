@@ -6,7 +6,7 @@
 %define	pdir	Class
 %define	pnam	MOP
 Summary:	Class::MOP - A Meta Object Protocol for Perl 5
-#Summary(pl.UTF-8):	
+Summary(pl.UTF-8):	Class::MOP - protokół metaobiektów (Meta Object Protocol) dla Perla 5
 Name:		perl-Class-MOP
 Version:	0.55
 Release:	1
@@ -36,8 +36,16 @@ set of extensions to the Perl 5 object system. Every attempt has been
 made for these tools to keep to the spirit of the Perl 5 object system
 that we all know and love.
 
-# %description -l pl.UTF-8
-# TODO
+%description -l pl.UTF-8
+Class::MOP to w pełni funkcjonalny protokół metaobiektów dla systemu
+obiektowego Perla 5. Nie próbuje zmieniać zachowania czy
+charakterystyki systemu obiektowego Perla 5, a jedynie tworzy protokół
+do własnych operacji i obserwacji.
+
+Oznacza to, że klasa ta nie tworzy narzędzi do budowania bogatego
+zbioru rozszerzeń do systemu obiektowego Perla 5 - dołożono wszelkich
+starań, aby utrzymać te narzędzia w duchu znanego i lubianego systemu
+obiektowego Perla 5.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
