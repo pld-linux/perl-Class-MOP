@@ -8,21 +8,27 @@
 Summary:	Class::MOP - A Meta Object Protocol for Perl 5
 Summary(pl.UTF-8):	Class::MOP - protokół metaobiektów (Meta Object Protocol) dla Perla 5
 Name:		perl-Class-MOP
-Version:	0.55
+Version:	0.63
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Class/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	83b916baa38c7089c9f0c84c67aa1fec
+# Source0-md5:	d3b00b0f5b1ec34324b24528e5d26cb1
 URL:		http://search.cpan.org/dist/Class-MOP/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
 BuildRequires:	perl-MRO-Compat >= 0.05
+BuildRequires:	perl-Scalar-List-Utils >= 1.18
+BuildRequires:	perl-Sub-Identify >= 0.03
 BuildRequires:	perl-Sub-Name >= 0.02
 BuildRequires:	perl-Test-Exception >= 0.21
+BuildRequires:	perl-Test-Simple >= 0.62
 %endif
+Requires:	perl-Scalar-List-Utils >= 1.18
+Requires:	perl-Sub-Identify >= 0.03
+Requires:	perl-Sub-Name >= 0.02
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -74,11 +80,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes
-%{perl_vendorarch}/*.pm
-%{perl_vendorarch}/Class/*.pm
+%{perl_vendorarch}/metaclass.pm
+%{perl_vendorarch}/Class/MOP.pm
 %{perl_vendorarch}/Class/MOP
 %dir %{perl_vendorarch}/auto/Class/MOP
-%{perl_vendorarch}/auto/Class/MOP/*.bs
-%attr(755,root,root) %{perl_vendorarch}/auto/Class/MOP/*.so
-%{_mandir}/man3/*
+%{perl_vendorarch}/auto/Class/MOP/MOP.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Class/MOP/MOP.so
+%{_mandir}/man3/Class::MOP*.3pm*
+%{_mandir}/man3/metaclass.3pm*
 %{_examplesdir}/%{name}-%{version}
