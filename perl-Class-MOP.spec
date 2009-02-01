@@ -8,17 +8,18 @@
 Summary:	Class::MOP - A Meta Object Protocol for Perl 5
 Summary(pl.UTF-8):	Class::MOP - protokół metaobiektów (Meta Object Protocol) dla Perla 5
 Name:		perl-Class-MOP
-Version:	0.63
+Version:	0.76
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Class/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	d3b00b0f5b1ec34324b24528e5d26cb1
+# Source0-md5:	79e3f4da8fac9d2c9601777be77279ca
 URL:		http://search.cpan.org/dist/Class-MOP/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
+BuildRequires:	perl-Devel-GlobalDestruction
 BuildRequires:	perl-MRO-Compat >= 0.05
 BuildRequires:	perl-Scalar-List-Utils >= 1.18
 BuildRequires:	perl-Sub-Identify >= 0.03
