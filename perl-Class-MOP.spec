@@ -26,6 +26,7 @@ BuildRequires:	perl-Sub-Identify >= 0.03
 BuildRequires:	perl-Sub-Name >= 0.02
 BuildRequires:	perl-Test-Exception >= 0.21
 BuildRequires:	perl-Test-Simple >= 0.62
+BuildRequires:	perl-Try-Tiny
 %endif
 Requires:	perl-Scalar-List-Utils >= 1.18
 Requires:	perl-Sub-Identify >= 0.03
