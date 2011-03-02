@@ -8,24 +8,36 @@
 Summary:	Class::MOP - A Meta Object Protocol for Perl 5
 Summary(pl.UTF-8):	Class::MOP - protokół metaobiektów (Meta Object Protocol) dla Perla 5
 Name:		perl-Class-MOP
-Version:	0.98
-Release:	2
+Version:	1.12
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	e604af07c9047f3021133ef74c3767fa
+Source0:	http://www.cpan.org/modules/by-module/Class/FLORA/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	685edbc1f388362f48ec67701b67acf6
 URL:		http://search.cpan.org/dist/Class-MOP/
-BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-devel >= 1:5.8.1
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
+BuildRequires:	perl-Algorithm-C3
+BuildRequires:	perl-Data-OptList
 BuildRequires:	perl-Devel-GlobalDestruction
+BuildRequires:	perl-List-MoreUtils >= 0.12
 BuildRequires:	perl-MRO-Compat >= 0.05
+BuildRequires:	perl-Module-Info
+BuildRequires:	perl-Package-DeprecationManager >= 0.10
+BuildRequires:	perl-Package-Stash >= 0.13
 BuildRequires:	perl-Scalar-List-Utils >= 1.18
-BuildRequires:	perl-Sub-Identify >= 0.03
-BuildRequires:	perl-Sub-Name >= 0.02
+BuildRequires:	perl-Sub-Name >= 0.04
+BuildRequires:	perl-Task-Weaken
 BuildRequires:	perl-Test-Exception >= 0.21
-BuildRequires:	perl-Test-Simple >= 0.62
+BuildRequires:	perl-Test-Fatal >= 0.001
+BuildRequires:	perl-Test-LeakTrace
+BuildRequires:	perl-Test-NoTabs
+BuildRequires:	perl-Test-Output
+BuildRequires:	perl-Test-Requires >= 0.05
+BuildRequires:	perl-Test-Simple >= 0.88
+BuildRequires:	perl-Test-Spelling
 BuildRequires:	perl-Try-Tiny
 %endif
 Requires:	perl-Scalar-List-Utils >= 1.18
