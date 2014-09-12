@@ -97,7 +97,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Class/MOP.pm
 %{perl_vendorarch}/Class/MOP
 %dir %{perl_vendorarch}/auto/Class/MOP
-%{perl_vendorarch}/auto/Class/MOP/MOP.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Class/MOP/MOP.so
 %{_mandir}/man3/Class::MOP*.3pm*
 %{_mandir}/man3/metaclass.3pm*
