@@ -4,7 +4,6 @@
 
 %define		pdir	Class
 %define		pnam	MOP
-%include	/usr/lib/rpm/macros.perl
 Summary:	Class::MOP - A Meta Object Protocol for Perl 5
 Summary(pl.UTF-8):	Class::MOP - protokół metaobiektów (Meta Object Protocol) dla Perla 5
 Name:		perl-Class-MOP
