@@ -8,7 +8,7 @@ Summary:	Class::MOP - A Meta Object Protocol for Perl 5
 Summary(pl.UTF-8):	Class::MOP - protokół metaobiektów (Meta Object Protocol) dla Perla 5
 Name:		perl-Class-MOP
 Version:	1.12
-Release:	8
+Release:	9
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
